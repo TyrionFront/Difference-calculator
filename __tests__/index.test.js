@@ -16,11 +16,10 @@ const filePathsAndTypes = [
 ];
 
 const pathToResult = '__tests__/__fixtures__/difference.txt';
-const resultContent = fs.readFileSync(pathToResult, 'utf-8');
-
 
 describe.each(filePathsAndTypes)('Parse two files, find diff and compare with correct difference output',
   (path1, path2, fileType) => {
+    const resultContent = fs.readFileSync(pathToResult, 'utf-8');
     it(`make it for two ${fileType} files`, () => {
       expect(genDiff(path1, path2)).toEqual(resultContent);
     });
