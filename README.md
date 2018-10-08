@@ -7,3 +7,9 @@
 [![codecov](https://codecov.io/gh/TyrionFront/project-lvl2-s341/branch/master/graph/badge.svg)](https://codecov.io/gh/TyrionFront/project-lvl2-s341)
 
 **stage 1**
+
+[![asciicast](https://asciinema.org/a/PEQOPM5QNGBzrdUSj5HVl7aGl.png)](https://asciinema.org/a/PEQOPM5QNGBzrdUSj5HVl7aGl)
+
+**stage 2-4**
+
+[![asciicast](https://asciinema.org/a/nK6Q2sTALPm63Id6pRIa0xcWU.png)](https://asciinema.org/a/nK6Q2sTALPm63Id6pRIa0xcWU)
