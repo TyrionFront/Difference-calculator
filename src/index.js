@@ -3,7 +3,7 @@ import path from 'path';
 import _ from 'lodash';
 import getParser from './parsers';
 
-const make = (data1, data2) => {
+export default (data1, data2) => {
   const dataType1 = path.extname(data1);
   const dataType2 = path.extname(data2);
 
@@ -31,7 +31,7 @@ const make = (data1, data2) => {
   return dataDifference.join('\n');
 };
 
-const f1 = '__tests__/__fixtures__/before.ini';
-const f2 = '__tests__/__fixtures__/after.yaml';
+// const f1 = '__tests__/__fixtures__/before.ini';
+// const f2 = '__tests__/__fixtures__/after.yaml';
 
-console.log(make(f1, f2));
+// console.log(make(f1, f2));
