@@ -2,7 +2,7 @@ export default class extends Error {
   constructor(type) {
     super(`${type}`);
 
-    this.name = 'DataTypeError';
+    this.name = 'InputDataTypeError';
     this.type = type;
     this.message = `${type} is incorrect data type. These data can not be parsed.
       Please, try again with data of ".JSON", ".yaml" or ".ini" types\n`;
