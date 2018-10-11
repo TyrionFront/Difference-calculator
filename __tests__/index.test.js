@@ -15,21 +15,23 @@ const filePathsAndTypes = [
   [pathToFileIni1, pathToFileIni2, '.ini'],
 ];
 
-const pathToResultSimpleTree = '__tests__/__fixtures__/simpleTree.txt';
-const simpleTreeContent = fs.readFileSync(pathToResultSimpleTree, 'utf-8');
+const getResContent = () => {
+  const pathToResultSimpleTree = '__tests__/__fixtures__/simpleTree.txt';
+  const simpleTreeContent = fs.readFileSync(pathToResultSimpleTree, 'utf-8');
 
-const pathToResultPlain = '__tests__/__fixtures__/plain.txt';
-const resultContentPlain = fs.readFileSync(pathToResultPlain, 'utf-8');
+  const pathToResultPlain = '__tests__/__fixtures__/plain.txt';
+  const resultContentPlain = fs.readFileSync(pathToResultPlain, 'utf-8');
 
-const pathToResultJson = '__tests__/__fixtures__/json.txt';
-const resultContentJson = fs.readFileSync(pathToResultJson, 'utf-8');
-const results = [
-  [simpleTreeContent, 'simpleTree'],
-  [resultContentPlain, 'plain'],
-  [resultContentJson, 'json'],
-];
+  const pathToResultJson = '__tests__/__fixtures__/json.txt';
+  const resultContentJson = fs.readFileSync(pathToResultJson, 'utf-8');
+  return [
+    [simpleTreeContent, 'simpleTree'],
+    [resultContentPlain, 'plain'],
+    [resultContentJson, 'json'],
+  ];
+};
 
-describe.each(results)('genDiff app test', (result, format) => {
+describe.each(getResContent())('genDiff app test', (result, format) => {
   describe.each(filePathsAndTypes)(`Parse two files, find diff and compare with "${format}" output`,
     (path1, path2, fileType) => {
       it(`make it for two ${fileType} files`, () => {
