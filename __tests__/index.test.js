@@ -24,3 +24,10 @@ describe.each(filePathsAndTypes)('Parse two files, find diff and compare with co
       expect(genDiff(path1, path2)).toEqual(resultContent);
     });
   });
+
+// describe('Parse data of incorrect type', () => {
+//   const pathToFile = '__tests__/__fixtures__/json.txt';
+//   it('parse ".txt"', () => {
+//     expect(genDiff(pathToFile, pathToFileIni2)).toThrowError();
+//   });
+// });

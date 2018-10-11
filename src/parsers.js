@@ -1,5 +1,6 @@
 import yaml from 'js-yaml';
 import ini from 'ini';
+import DataErrors from './DataErrors';
 
 const parserSource = {
   '.json': JSON.parse,
@@ -8,9 +9,8 @@ const parserSource = {
 };
 
 export default (type) => {
-  if (parserSource[type]) {
-    return parserSource[type];
+  if (!parserSource[type]) {
+    throw new DataErrors(type);
   }
-  console.log('Wrong file type. The following result is incorrect\n');
-  return () => {};
+  return parserSource[type];
 };
