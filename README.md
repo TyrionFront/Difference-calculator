@@ -13,3 +13,6 @@
 **stage 2-4**
 
 [![asciicast](https://asciinema.org/a/buGKBtTJbz7MiNqGGs9tv8HYQ.png)](https://asciinema.org/a/buGKBtTJbz7MiNqGGs9tv8HYQ)
+
+**stage 5-7**
+[![asciicast](https://asciinema.org/a/DtwITymREBy6kOOsr1SRi9cNs.png)](https://asciinema.org/a/DtwITymREBy6kOOsr1SRi9cNs)
