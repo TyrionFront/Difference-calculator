@@ -1,12 +1,25 @@
 #!/usr/bin/env node
 import program from 'commander';
 import genDiff from '..';
+import { description, version } from '../../package.json';
+
+const defineFormatType = (type) => {
+  if (['simpleTree', 'plain', 'json'].includes(type)) { return type; }
+
+  console.log('\nDefault format "simpleTree" is used. Enter correct format name, please\n');
+  return 'simpleTree';
+};
 
 program
+  .version(`${version}`, '-V, --version')
   .arguments('<firstConfig> <secondConfig>')
-  .description('Compares two configuration files and shows a difference.')
-  .option('-V, --version', 'output the version number')
-  .option('-f, --format [type]', 'Output format')
-  .action((path1, path2) => console.log(genDiff(path1, path2)));
+  .description(`${description}`)
+  .option('-f, --format [type]', `Output format:
+  "simpleTree" - shows diff as a tree;
+  "plain" - shows diff as a list;
+  "json" - shows diff as a JSON string`, defineFormatType, 'simpleTree')
+  .action((firstConfig, secondConfig) => {
+    console.log(genDiff(firstConfig, secondConfig, program.format));
+  });
 
 program.parse(process.argv);
