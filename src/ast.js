@@ -22,7 +22,7 @@ const nodeTypesActions = [
   {
     type: 'added',
     check: (oldFile, newFile, key) => !_.has(oldFile, key) && _.has(newFile, key),
-    process: (value1, value2) => [value1, value2],
+    process: (value1, value2) => ['', value2],
   },
   {
     type: 'deleted',
