@@ -22,12 +22,12 @@ const getResContent = () => {
   const pathToResultPlain = '__tests__/__fixtures__/plain.txt';
   const resultContentPlain = fs.readFileSync(pathToResultPlain, 'utf-8');
 
-  const pathToResultJson = '__tests__/__fixtures__/json.txt';
-  const resultContentJson = fs.readFileSync(pathToResultJson, 'utf-8');
+  // const pathToResultJson = '__tests__/__fixtures__/json.txt';
+  // const resultContentJson = fs.readFileSync(pathToResultJson, 'utf-8');
   return [
     [simpleTreeContent, 'simpleTree'],
     [resultContentPlain, 'plain'],
-    [resultContentJson, 'json'],
+    // [resultContentJson, 'json'],
   ];
 };
 

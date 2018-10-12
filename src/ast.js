@@ -11,7 +11,7 @@ const nodeTypesActions = [
   {
     type: 'unchanged',
     check: (oldFile, newFile, key) => oldFile[key] === newFile[key],
-    process: value => value,
+    process: value => [value],
   },
   {
     type: 'changed',
@@ -22,12 +22,12 @@ const nodeTypesActions = [
   {
     type: 'added',
     check: (oldFile, newFile, key) => !_.has(oldFile, key) && _.has(newFile, key),
-    process: (value1, value2) => value2,
+    process: (value1, value2) => [value1, value2],
   },
   {
     type: 'deleted',
     check: (oldFile, newFile, key) => _.has(oldFile, key) && !_.has(newFile, key),
-    process: value => value,
+    process: value => [value],
   },
 ];
 

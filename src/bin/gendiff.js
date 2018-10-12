@@ -6,7 +6,7 @@ import { description, version } from '../../package.json';
 const defineFormatType = (type) => {
   if (['simpleTree', 'plain', 'json'].includes(type)) { return type; }
 
-  console.log('\nDefault format "simpleTree" is used. Enter correct format name, please\n');
+  console.log('\nDefault output format "simpleTree" is used. Enter correct format name, please\n');
   return 'simpleTree';
 };
 

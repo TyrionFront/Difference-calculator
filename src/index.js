@@ -19,3 +19,8 @@ export default (data1, data2, outputType) => {
 
   return render(ast);
 };
+
+// const f1 = '__tests__/__fixtures__/json.txt';
+// const f2 = '__tests__/__fixtures__/after.yaml';
+
+// console.log(make(f1, f2));
