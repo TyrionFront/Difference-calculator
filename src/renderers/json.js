@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 const render = data => data.map((node) => {
   const { type, name, content } = node;
   if (type === 'nested') { return { type, name, content: render(content) }; }
