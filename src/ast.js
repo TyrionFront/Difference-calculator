@@ -3,21 +3,21 @@ import _ from 'lodash';
 
 const nodeTypesActions = [
   {
-    type: 'children',
+    type: 'nested',
     check: (oldFile, newFile, key) => (_.has(oldFile, key) && _.has(newFile, key))
       && (_.isPlainObject(oldFile[key]) && _.isPlainObject(newFile[key])),
     process: (value1, value2, fun) => fun(value1, value2),
-  },
-  {
-    type: 'unchanged',
-    check: (oldFile, newFile, key) => oldFile[key] === newFile[key],
-    process: value => [value],
   },
   {
     type: 'changed',
     check: (oldFile, newFile, key) => (_.has(oldFile, key) && _.has(newFile, key))
       && oldFile[key] !== newFile[key],
     process: (value1, value2) => [value1, value2],
+  },
+  {
+    type: 'unchanged',
+    check: (oldFile, newFile, key) => oldFile[key] === newFile[key],
+    process: value => [value],
   },
   {
     type: 'added',

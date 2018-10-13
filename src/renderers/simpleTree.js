@@ -1,60 +1,54 @@
 import _ from 'lodash';
 
-const makeCorrectValue = value => (_.isPlainObject(value) ? _.keys(value)
-  .map(k => [`  ${k}`, value[k]]) : value);
+const space = '    ';
+const stringify = (name, data, depth = 0) => {
+  const modifiedData = (_.isPlainObject(data) ? _.keys(data)
+    .map(key => `\n${space.repeat(depth + 1)}  ${key}: ${data[key]}`)
+    : ` ${data}`);
+  return `${space.repeat(depth)}${name}:${modifiedData}`;
+};
 
 const keyValuesActions = [
   {
-    check: nodeType => nodeType === 'children',
-    process: (key, content, func) => [[`  ${key}`, func(content)]],
+    key: 'nested',
+    makeStr: (name, content, depth, func) => [`${space.repeat(depth)}  ${name}:`,
+      `${func(content, depth + 1)}`],
   },
   {
-    check: nodeType => nodeType === 'unchanged',
-    process: (key, values) => {
-      const [oldValue] = values;
-      return [[`  ${key}`, makeCorrectValue(oldValue)]];
-    },
-  },
-  {
-    check: nodeType => nodeType === 'changed',
-    process: (key, values) => {
+    key: 'changed',
+    makeStr: (name, values, depth) => {
       const [oldValue, newValue] = values;
-      return [[`- ${key}`, makeCorrectValue(oldValue)],
-        [`+ ${key}`, makeCorrectValue(newValue)]];
+      return [stringify(`- ${name}`, oldValue, depth),
+        stringify(`+ ${name}`, newValue, depth)];
     },
   },
   {
-    check: nodeType => nodeType === 'added',
-    process: (key, values) => {
-      const [, newValue] = values;
-      return [[`+ ${key}`, makeCorrectValue(newValue)]];
-    },
-  },
-  {
-    check: nodeType => nodeType === 'deleted',
-    process: (key, values) => {
+    key: 'unchanged',
+    makeStr: (name, values, depth) => {
       const [oldValue] = values;
-      return [[`- ${key}`, makeCorrectValue(oldValue)]];
+      return stringify(`  ${name}`, oldValue, depth);
+    },
+  },
+  {
+    key: 'added',
+    makeStr: (name, values, depth) => {
+      const [, newValue] = values;
+      return stringify(`+ ${name}`, newValue, depth);
+    },
+  },
+  {
+    key: 'deleted',
+    makeStr: (name, values, depth) => {
+      const [oldValue] = values;
+      return stringify(`- ${name}`, oldValue, depth);
     },
   },
 ];
 
-const makeArrTree = tree => _.flatten(tree.map((node) => {
+const render = (data, depth = 0) => _.flatten(data.map((node) => {
   const { type, name, content } = node;
-  const { process } = _.find(keyValuesActions, ({ check }) => check(type));
-  return process(name, content, makeArrTree);
-}));
+  const { makeStr } = _.find(keyValuesActions, ({ key }) => key === type);
+  return makeStr(name, content, depth, render);
+})).join('\n');
 
-const stringify = (tree, depth = 0) => tree
-  .map((node) => {
-    const space = '    '.repeat(depth);
-    const [key, value] = node;
-    return _.isArray(value) ? `${space}${key}:\n${stringify(value, depth + 1).join('\n')}`
-      : `${space}${key}: ${value}`;
-  });
-
-const render = (data) => {
-  const arrTree = makeArrTree(data);
-  return stringify(arrTree).join('\n');
-};
 export default render;

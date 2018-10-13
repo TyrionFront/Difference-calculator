@@ -20,7 +20,7 @@ export default (data1, data2, outputType) => {
   return render(ast);
 };
 
-// const f1 = '__tests__/__fixtures__/json.txt';
-// const f2 = '__tests__/__fixtures__/after.yaml';
+// const f1 = '__tests__/__fixtures__/beforeNested.json';
+// const f2 = '__tests__/__fixtures__/afterNested.yaml';
 
-// console.log(make(f1, f2));
+// console.log(make(f1, f2, 'simpleTree'));
