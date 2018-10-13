@@ -8,47 +8,35 @@ const stringify = (name, data, depth = 0) => {
   return `${space.repeat(depth)}${name}:${modifiedData}`;
 };
 
-const keyValuesActions = [
-  {
-    key: 'nested',
-    makeStr: (name, content, depth, func) => [`${space.repeat(depth)}  ${name}:`,
-      `${func(content, depth + 1)}`],
+const keyValuesActions = {
+  nested: (name, content, depth, func) => [`${space.repeat(depth)}  ${name}:`,
+    `${func(content, depth + 1)}`],
+
+  changed: (name, values, depth) => {
+    const [oldValue, newValue] = values;
+    return [stringify(`- ${name}`, oldValue, depth),
+      stringify(`+ ${name}`, newValue, depth)];
   },
-  {
-    key: 'changed',
-    makeStr: (name, values, depth) => {
-      const [oldValue, newValue] = values;
-      return [stringify(`- ${name}`, oldValue, depth),
-        stringify(`+ ${name}`, newValue, depth)];
-    },
+
+  unchanged: (name, values, depth) => {
+    const [oldValue] = values;
+    return stringify(`  ${name}`, oldValue, depth);
   },
-  {
-    key: 'unchanged',
-    makeStr: (name, values, depth) => {
-      const [oldValue] = values;
-      return stringify(`  ${name}`, oldValue, depth);
-    },
+
+  added: (name, values, depth) => {
+    const [, newValue] = values;
+    return stringify(`+ ${name}`, newValue, depth);
   },
-  {
-    key: 'added',
-    makeStr: (name, values, depth) => {
-      const [, newValue] = values;
-      return stringify(`+ ${name}`, newValue, depth);
-    },
+
+  deleted: (name, values, depth) => {
+    const [oldValue] = values;
+    return stringify(`- ${name}`, oldValue, depth);
   },
-  {
-    key: 'deleted',
-    makeStr: (name, values, depth) => {
-      const [oldValue] = values;
-      return stringify(`- ${name}`, oldValue, depth);
-    },
-  },
-];
+};
 
 const render = (data, depth = 0) => _.flatten(data.map((node) => {
   const { type, name, content } = node;
-  const { makeStr } = _.find(keyValuesActions, ({ key }) => key === type);
-  return makeStr(name, content, depth, render);
+  return keyValuesActions[type](name, content, depth, render);
 })).join('\n');
 
 export default render;
