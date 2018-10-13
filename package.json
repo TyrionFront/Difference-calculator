@@ -1,6 +1,6 @@
 {
   "name": "calcconfigdiff",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "2nd web-dev.(front) project on Hexlet. Cli utility that calculates & displays difference between 2 config files in .JSON, .yaml or .ini format",
   "main": "dist/index.js",
   "bin": {
