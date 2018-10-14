@@ -4,26 +4,26 @@
     "content": [
       {
         "name": "setting1",
-        "content": [
-          "Value 1"
-        ],
+        "content": {
+          "oldValue": "Value 1"
+        },
         "type": "unchanged"
       },
       {
         "name": "setting2",
-        "content": [
-          "200"
-        ],
+        "content": {
+          "oldValue": "200"
+        },
         "type": "deleted"
       },
       {
         "name": "setting3",
-        "content": [
-          true,
-          {
+        "content": {
+          "oldValue": true,
+          "newValue": {
             "key": "value"
           }
-        ],
+        },
         "type": "changed"
       },
       {
@@ -31,17 +31,16 @@
         "content": [
           {
             "name": "key",
-            "content": [
-              "value"
-            ],
+            "content": {
+              "oldValue": "value"
+            },
             "type": "unchanged"
           },
           {
             "name": "ops",
-            "content": [
-              "",
-              "vops"
-            ],
+            "content": {
+              "newValue": "vops"
+            },
             "type": "added"
           }
         ],
@@ -49,28 +48,25 @@
       },
       {
         "name": "follow",
-        "content": [
-          "",
-          false
-        ],
+        "content": {
+          "newValue": false
+        },
         "type": "added"
       },
       {
         "name": "setting4",
-        "content": [
-          "",
-          "blah blah"
-        ],
+        "content": {
+          "newValue": "blah blah"
+        },
         "type": "added"
       },
       {
         "name": "setting5",
-        "content": [
-          "",
-          {
+        "content": {
+          "newValue": {
             "key5": "value5"
           }
-        ],
+        },
         "type": "added"
       }
     ],
@@ -81,27 +77,27 @@
     "content": [
       {
         "name": "baz",
-        "content": [
-          "bas",
-          "bars"
-        ],
+        "content": {
+          "oldValue": "bas",
+          "newValue": "bars"
+        },
         "type": "changed"
       },
       {
         "name": "foo",
-        "content": [
-          "bar"
-        ],
+        "content": {
+          "oldValue": "bar"
+        },
         "type": "unchanged"
       },
       {
         "name": "nest",
-        "content": [
-          {
+        "content": {
+          "oldValue": {
             "key": "value"
           },
-          "str"
-        ],
+          "newValue": "str"
+        },
         "type": "changed"
       }
     ],
@@ -109,21 +105,20 @@
   },
   {
     "name": "group2",
-    "content": [
-      {
+    "content": {
+      "oldValue": {
         "abc": "12345"
       }
-    ],
+    },
     "type": "deleted"
   },
   {
     "name": "group3",
-    "content": [
-      "",
-      {
+    "content": {
+      "newValue": {
         "fee": "100500"
       }
-    ],
+    },
     "type": "added"
   }
 ]

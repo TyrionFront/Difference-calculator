@@ -6,16 +6,16 @@ const propertyValueActions = {
   nested: (property, content, func) => func(content, `${property}.`),
 
   changed: (property, values) => {
-    const [oldValue, newValue] = values;
-    return `Property ${property} was updated. From ${modifyValue(oldValue)} to ${modifyValue(newValue)}\n`;
+    const { oldValue, newValue } = values;
+    return `Property ${property} was updated. From ${modifyValue(oldValue)} to ${modifyValue(newValue)}`;
   },
 
   added: (property, values) => {
-    const [, newValue] = values;
-    return `Property ${property} was added with value ${modifyValue(newValue)}\n`;
+    const { newValue } = values;
+    return `Property ${property} was added with value ${modifyValue(newValue)}`;
   },
 
-  deleted: property => `Property ${property} was removed\n`,
+  deleted: property => `Property ${property} was removed`,
 };
 
 const render = (data, propertyName = '') => data.filter(({ type }) => type !== 'unchanged')
@@ -24,6 +24,6 @@ const render = (data, propertyName = '') => data.filter(({ type }) => type !== '
     const fullPropertyName = `${propertyName}${name}`;
 
     return propertyValueActions[type](fullPropertyName, content, render);
-  }).join('');
+  }).join('\n');
 
 export default render;

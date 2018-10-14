@@ -13,23 +13,23 @@ const keyValuesActions = {
     `${func(content, depth + 1)}`],
 
   changed: (name, values, depth) => {
-    const [oldValue, newValue] = values;
+    const { oldValue, newValue } = values;
     return [stringify(`- ${name}`, oldValue, depth),
       stringify(`+ ${name}`, newValue, depth)];
   },
 
   unchanged: (name, values, depth) => {
-    const [oldValue] = values;
+    const { oldValue } = values;
     return stringify(`  ${name}`, oldValue, depth);
   },
 
   added: (name, values, depth) => {
-    const [, newValue] = values;
+    const { newValue } = values;
     return stringify(`+ ${name}`, newValue, depth);
   },
 
   deleted: (name, values, depth) => {
-    const [oldValue] = values;
+    const { oldValue } = values;
     return stringify(`- ${name}`, oldValue, depth);
   },
 };
