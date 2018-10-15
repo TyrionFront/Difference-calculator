@@ -37,7 +37,7 @@ const makeAst = (oldFile, newFile) => {
     const { type, process } = _.find(nodeTypesActions, elem => elem.check(oldFile, newFile, key));
     const content = process(oldFile[key], newFile[key], makeAst);
 
-    return { name: key, content, type };
+    return { type, name: key, content };
   });
 };
 
