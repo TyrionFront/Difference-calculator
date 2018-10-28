@@ -3,8 +3,8 @@
 **Project is made during studying web-dev on [Hexlet](https://ru.hexlet.io/?ref=50614).**
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/7fdf8101f14ac642b01e/maintainability)](https://codeclimate.com/github/TyrionFront/Difference-calculator/maintainability)
-[![Build Status](https://travis-ci.org/TyrionFront/project-lvl2-s341.svg?branch=master)](https://travis-ci.org/TyrionFront/project-lvl2-s341)
-[![codecov](https://codecov.io/gh/TyrionFront/project-lvl2-s341/branch/master/graph/badge.svg)](https://codecov.io/gh/TyrionFront/project-lvl2-s341)
+[![Build Status](https://travis-ci.org/TyrionFront/Difference-calculator.svg?branch=master)](https://travis-ci.org/TyrionFront/Difference-calculator)
+[![codecov](https://codecov.io/gh/TyrionFront/Difference-calculator/branch/master/graph/badge.svg)](https://codecov.io/gh/TyrionFront/Difference-calculator)
 
 **stage 1**
 
