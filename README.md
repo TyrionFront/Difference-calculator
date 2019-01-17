@@ -6,13 +6,17 @@
 [![Build Status](https://travis-ci.org/TyrionFront/Difference-calculator.svg?branch=master)](https://travis-ci.org/TyrionFront/Difference-calculator)
 [![codecov](https://codecov.io/gh/TyrionFront/Difference-calculator/branch/master/graph/badge.svg)](https://codecov.io/gh/TyrionFront/Difference-calculator)
 
-**stage 1**
+**gendiff** is a command-line cli-util that allows You to compare two config-files (.ini, .yaml or .JSON) and display the calculated difference between them in "txt", "plain" or "JSON" format.  
 
-[![asciicast](https://asciinema.org/a/sADhEcpmGaoXVh1sUuItX0QMm.png)](https://asciinema.org/a/sADhEcpmGaoXVh1sUuItX0QMm)
+<h2>Prerequisites</h2>
 
-**stage 2-4**
+To be able to install & run **gendiff** the [npm](https://www.npmjs.com/get-npm) must be installed on your computer.
 
-[![asciicast](https://asciinema.org/a/buGKBtTJbz7MiNqGGs9tv8HYQ.png)](https://asciinema.org/a/buGKBtTJbz7MiNqGGs9tv8HYQ)
+<h2>Installation</h2>
 
-**stage 5-7**
+```$ npm install -g calcconfigdiff```
+
+To see how it all works Yoy can watch the short video below:
+
+**Demo**
 [![asciicast](https://asciinema.org/a/DtwITymREBy6kOOsr1SRi9cNs.png)](https://asciinema.org/a/DtwITymREBy6kOOsr1SRi9cNs)
