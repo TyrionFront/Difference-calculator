@@ -1,5 +1,5 @@
 run:
-	npx babel-node -- 'src/bin/gendiff.js' 10
+	npx babel-node -- 'src/bin/gendiff.js'
 
 install-deps:
 	npm install
