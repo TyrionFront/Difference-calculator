@@ -32,7 +32,7 @@
   "author": "Dale Barbara",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
+    "@babel/cli": "^7.8.3",
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "babel-eslint": "^9.0.0",
