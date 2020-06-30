@@ -1,18 +1,18 @@
 import _ from 'lodash';
 
-const modifyValue = value => (_.isPlainObject(value) ? '[complex value]' : value);
+const identifyValue = value => (_.isPlainObject(value) ? '[complex value]' : value);
 
 const propertyValueActions = {
   nested: (property, content, func) => func(content, `${property}.`),
 
   changed: (property, values) => {
     const { oldValue, newValue } = values;
-    return `Property ${property} was updated. From ${modifyValue(oldValue)} to ${modifyValue(newValue)}`;
+    return `Property ${property} was updated. From ${identifyValue(oldValue)} to ${identifyValue(newValue)}`;
   },
 
   added: (property, values) => {
     const { newValue } = values;
-    return `Property ${property} was added with value ${modifyValue(newValue)}`;
+    return `Property ${property} was added with value ${identifyValue(newValue)}`;
   },
 
   deleted: property => `Property ${property} was removed`,
