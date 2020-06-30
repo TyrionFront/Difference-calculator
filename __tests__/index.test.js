@@ -13,6 +13,7 @@ const filePathsAndTypes = [
   [pathToFileJson1, pathToFileJson2, '.JSON'],
   [pathToFileYaml1, pathToFileYaml2, '.yaml'],
   [pathToFileIni1, pathToFileIni2, '.ini'],
+  [pathToFileIni1, pathToFileYaml2, 'combined'],
 ];
 
 const getResContent = () => {
